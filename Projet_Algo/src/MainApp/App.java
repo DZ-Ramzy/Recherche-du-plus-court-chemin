@@ -1,5 +1,6 @@
 package MainApp;
 
+//import MainApp.WeightedGraph.Edge;
 import MainApp.WeightedGraph.Graph;
 import MainApp.WeightedGraph.Vertex;
 
@@ -264,6 +265,85 @@ public class App {
 		board.addPath(graph, path);
 		return path;
 	}
+	/*private static LinkedList<Integer> AStar(Graph graph, int start, int end, int ncols, int numberV, Board board) {
+	    graph.vertexlist.get(start).timeFromSource = 0;
+	    int number_tries = 0;
+
+	    // Liste des noeuds à visiter
+	    HashSet<Integer> to_visit = new HashSet<>();
+	    for (int i = 0; i < numberV; i++) {
+	        to_visit.add(i);
+	    }
+
+	    // Calculer l'heuristique pour chaque sommet
+	    for (int i = 0; i < numberV; i++) {
+	        int x1 = i % ncols;
+	        int y1 = i / ncols;
+	        int x2 = end % ncols;
+	        int y2 = end / ncols;
+
+	        // Utilisation de la distance euclidienne
+	        graph.vertexlist.get(i).heuristic = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+	    }
+
+	    while (to_visit.contains(end)) {
+	        // Trouver le noeud avec la plus petite distance (timeFromSource + heuristic)
+	        int min_v = -1;
+	        double min_distance = Double.POSITIVE_INFINITY;
+
+	        for (int v : to_visit) {
+	            double totalDistance = graph.vertexlist.get(v).timeFromSource + graph.vertexlist.get(v).heuristic;
+	            if (totalDistance < min_distance) {
+	                min_distance = totalDistance;
+	                min_v = v;
+	            }
+	        }
+
+	        if (min_v == -1) {
+	            System.out.println("Impossible de trouver un chemin.");
+	            return new LinkedList<>();
+	        }
+
+	        to_visit.remove(min_v);
+	        number_tries++;
+
+	        // Mise à jour des voisins
+	        for (Edge edge : graph.vertexlist.get(min_v).adjacencylist) {
+	            int neighbor = edge.destination;
+	            double weight = edge.weight;
+
+	            if (graph.vertexlist.get(min_v).timeFromSource + weight < graph.vertexlist.get(neighbor).timeFromSource) {
+	                graph.vertexlist.get(neighbor).timeFromSource = graph.vertexlist.get(min_v).timeFromSource + weight;
+	                graph.vertexlist.get(neighbor).prev = graph.vertexlist.get(min_v);
+	            }
+	        }
+
+	        // Mise à jour de l'affichage
+	        try {
+	            board.update(graph, min_v);
+	            Thread.sleep(10);
+	        } catch (InterruptedException e) {
+	            System.out.println("Arrêt de l'affichage.");
+	        }
+	    }
+
+	    // Reconstruction du chemin
+	    System.out.println("Terminé avec A* :");
+	    System.out.println("  Nombre de noeuds explorés : " + number_tries);
+	    System.out.println("  Temps total du chemin : " + graph.vertexlist.get(end).timeFromSource);
+
+	    LinkedList<Integer> path = new LinkedList<>();
+	    path.addFirst(end);
+	    Vertex current = graph.vertexlist.get(end);
+
+	    while (current.prev != null) {
+	        current = current.prev;
+	        path.addFirst(current.num);
+	    }
+
+	    board.addPath(graph, path);
+	    return path;
+	}*/
 
 	// M�thode Dijkstra
 	// graph: le graphe repr�sentant la carte
@@ -345,7 +425,7 @@ public class App {
 		// Lecture de la carte et cr�ation du graphe
 		try {
 			// TODO: obtenir le fichier qui d�crit la carte
-			File myObj = new File("C:\\Users\\alger\\OneDrive\\Desktop\\PAA\\Projet_Algo\\src\\MainApp\\graphe.txt");
+			File myObj = new File("C:\\Users\\alger\\OneDrive\\Desktop\\PAA\\Projet_Algo\\src\\MainApp\\graphe2.txt");
 			Scanner myReader = new Scanner(myObj);
 			String data = "";
 			// On ignore les deux premi�res lignes
@@ -531,4 +611,3 @@ public class App {
 	}
 
 }
-
