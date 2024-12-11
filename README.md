@@ -14,6 +14,7 @@ Ce projet Java implémente deux algorithmes de recherche de chemin : **Dijkstra*
 - **`App.java`** : Contient la logique principale de l'application, y compris l'interface utilisateur, le traitement des fichiers d'entrée et la gestion des algorithmes.
 - **`WeightedGraph.java`** : Définit la structure du graphe pondéré.
 - **`Board`** : Gère l'affichage graphique.
-##Compilation/ Execution :
+- 
+## Compilation/ Execution 
 - **Compilation** `javac MainApp/App.java MainApp/WeightedGraph.java`
 - **Execution** `java MainApp.app`
