@@ -1,4 +1,4 @@
-###Projet : Algorithmes de Recherche de Chemin
+#Projet : Algorithmes de Recherche de Chemin
 
 #Descriptio 
 Ce projet Java implémente deux algorithmes de recherche de chemin : Dijkstra et A*.
