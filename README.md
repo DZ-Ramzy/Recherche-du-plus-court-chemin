@@ -18,3 +18,5 @@ Ce projet Java implémente deux algorithmes de recherche de chemin : **Dijkstra*
 ## Compilation/ Execution 
 - **Compilation** `javac MainApp/App.java MainApp/WeightedGraph.java`
 - **Execution** `java MainApp.app`
+
+
